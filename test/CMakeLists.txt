@@ -1,13 +1,16 @@
-enable_testing()
+set(TEST_NAME ${PROJECT_NAME}_catch2tests)
 
-add_executable(foo_test main.cpp test.foo.cpp)
+file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false test.*.cpp)
 
-target_compile_features(foo_test PUBLIC cxx_std_17)
+find_package(Catch2 REQUIRED)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-#conan_basic_setup(TARGETS)
-#conan_target_link_libraries(foo_test)
-#target_link_libraries(foo_test CONAN_PKG::gtest CONAN_PKG::catch2)
+add_executable(${TEST_NAME} ${TEST_SOURCES})
+add_test(${TEST_NAME} ${TEST_NAME})
 
-add_test(foo_test foo_test)
+target_link_libraries(${TEST_NAME} pthread)
+target_compile_features(${TEST_NAME} PUBLIC cxx_std_17)
+target_compile_options(${TEST_NAME} INTERFACE ${PROJECT_OPTIONS})
+target_include_directories(${TEST_NAME} PRIVATE
+    ../include
+    ${Catch2_INCLUDE_DIRS}
+    )
