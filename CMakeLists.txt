@@ -1,19 +1,23 @@
-cmake_minimum_required(VERSION 3.12)
-project(testing_conan CXX)
+cmake_minimum_required(VERSION 3.19)
+project(testing_conan
+  VERSION "0.1.1"
+  DESCRIPTION "conan with test suites: gtest and catch2"
+  LANGUAGES CXX
+)
 
 option(ENABLE_TESTS "Enable tests" False)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
 set(PROJECT_OPTIONS
-    -O3
-    -Wpedantic
-    -Wall
-    -Wextra
-    -Werror
-    )
+  -Wpedantic
+  -Wall
+  -Wextra
+  -Werror
+)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_BINARY_DIR})
+set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_BINARY_DIR})
 
 target_link_libraries(${PROJECT_NAME} pthread)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
