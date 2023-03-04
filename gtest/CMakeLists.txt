@@ -10,6 +10,6 @@ find_package(GTest REQUIRED)
 add_executable(${TEST_NAME} ${TEST_SOURCES})
 add_test(${TEST_NAME} ${TEST_NAME})
 
-target_link_libraries(${TEST_NAME} pthread ${gtest_LIBRARIES})
+target_link_libraries(${TEST_NAME} pthread ${GTest_LIBRARIES})
 target_compile_features(${TEST_NAME} PUBLIC cxx_std_20)
 target_compile_options(${TEST_NAME} INTERFACE ${PROJECT_OPTIONS})
