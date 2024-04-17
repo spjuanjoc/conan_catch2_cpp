@@ -1,6 +1,7 @@
 [requires]
-  catch2/3.3.0
+  catch2/3.5.4
   gtest/1.10.0
 
+
 [generators]
-  CMakeDeps
+  cmake_find_package
