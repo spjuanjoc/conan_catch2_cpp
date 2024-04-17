@@ -25,7 +25,7 @@ target_compile_options(${TEST_NAME} INTERFACE ${PROJECT_OPTIONS})
 
 target_include_directories(${TEST_NAME}
   PRIVATE
-    ../include
+  ../include
   PRIVATE SYSTEM
-    ${catch2_INCLUDE_DIRS}
+  ${catch2_INCLUDE_DIRS}
 )
