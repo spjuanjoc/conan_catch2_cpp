@@ -3,7 +3,8 @@
 
 using namespace testing;
 
-TEST(IntTest, AssertAndExpectInts) {
+TEST(IntTest, AssertAndExpectInts)
+{
   // AAA
   // Arrange
   // Act
@@ -12,7 +13,8 @@ TEST(IntTest, AssertAndExpectInts) {
   EXPECT_THAT(2, Eq(2));
 }
 
-TEST(BoolTest, AssertAndExpectBools) {
+TEST(BoolTest, AssertAndExpectBools)
+{
   ASSERT_THAT(true, Eq(true));
   EXPECT_THAT(false, Eq(false));
 }
