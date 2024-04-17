@@ -8,10 +8,10 @@ project(test_suites_cpp
 
 # Options
 option(ENABLE_COVERAGE  "Enable gcov coverage"  False)
-option(ENABLE_TESTS     "Enable tests"          False)
+  option(ENABLE_TESTS     "Enable tests"          False)
 
 
-add_executable(${PROJECT_NAME} main.cpp)
+  add_executable(${PROJECT_NAME} main.cpp)
 
 ## Compiler options
 include(cmake/CompilerOptions.cmake)
@@ -36,16 +36,16 @@ conan_cmake_run(CONANFILE conanfile.txt
   BASIC_SETUP NO_OUTPUT_DIRS
   BUILD missing
   SETTINGS ${settings}
-)
+  )
 
 ## Find third-party packages
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_BINARY_DIR})
+  set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_BINARY_DIR})
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_BINARY_DIR})
 
-target_compile_options(${PROJECT_NAME} INTERFACE ${PROJECT_OPTIONS})
+  target_compile_options(${PROJECT_NAME} INTERFACE ${PROJECT_OPTIONS})
 
-if (ENABLE_TESTS)
-  message(STATUS "Tests enabled")
-  enable_testing() # Must be placed before add_subdirectory
-  add_subdirectory(test)
-endif ()
+  if (ENABLE_TESTS)
+    message(STATUS "Tests enabled")
+    enable_testing() # Must be placed before add_subdirectory
+    add_subdirectory(test)
+  endif ()
