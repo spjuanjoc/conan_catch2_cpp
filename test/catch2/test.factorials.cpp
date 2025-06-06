@@ -4,7 +4,7 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-std::uint32_t Factorial(std::uint32_t number)
+std::uint32_t Factorial(const std::uint32_t number)
 {
   return number <= 1 ? number : Factorial(number - 1) * number;
 }
