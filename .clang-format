@@ -57,7 +57,7 @@ MaxEmptyLinesToKeep: 2
 NamespaceIndentation: None
 PenaltyBreakBeforeFirstCallParameter: 100
 PointerAlignment: Left
-ReflowComments: false
+ReflowComments: IndentOnly
 SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
